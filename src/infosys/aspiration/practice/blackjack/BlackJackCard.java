@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package infosys.aspiration.test.blackjack;
+package infosys.aspiration.practice.blackjack;
 
 import java.util.HashMap;
 import java.util.Map;
