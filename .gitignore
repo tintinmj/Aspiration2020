@@ -213,3 +213,15 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+
+
+#############
+## Java
+#############
+
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
