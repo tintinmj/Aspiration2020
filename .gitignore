@@ -225,3 +225,14 @@ pip-log.txt
 *.jar
 *.war
 *.ear
+
+
+#############
+## NetBeans
+#############
+
+.nbproject/
+  build-impl.xml
+  .private/
+  project.properties
+  project.xml
