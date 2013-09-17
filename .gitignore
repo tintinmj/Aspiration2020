@@ -231,8 +231,8 @@ pip-log.txt
 ## NetBeans
 #############
 
-.nbproject/
+nbproject/
   build-impl.xml
-  .private/
+  private/
   project.properties
   project.xml
