@@ -4,9 +4,9 @@
  */
 package infosys.aspiration.test.blackjack;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import org.apache.commons.lang3.ArrayUtils;
 
 /**
  *
@@ -16,11 +16,11 @@ public class BlackJackCard {
     
     public static final Map<Character, Integer> blackJackCardToValue;
     @SuppressWarnings("MismatchedReadAndWriteOfArray")
-    public static final Character []cardNameInChar = new Character[]{
+    public static final char []cardNameInChar = new char[]{
                                                 '1', '2', '3', '4', '5', '6', 
                                                 '7', '8', '9', 'J', 'Q', 'K'};
     @SuppressWarnings("MismatchedReadAndWriteOfArray")
-    private static final Integer []cardVaule = new Integer[]{
+    private static final int []cardVaule = new int[]{
                                                  1, 2, 3, 4, 5, 6,
                                                  7, 8, 9, 10, 10, 10};
     static {
@@ -32,7 +32,15 @@ public class BlackJackCard {
         }
     }
     
-    public static boolean isCardValid(char key) {
-        return Arrays.binarySearch(cardNameInChar, key) >= 0;
+    public static boolean isCardPresent(char key) {
+        return ArrayUtils.contains(cardNameInChar, key);
+    }
+    
+    public static boolean isFaceCard(char card) {
+        if(card == 'J' ||
+           card == 'Q' ||
+           card == 'K'  ) return true;
+        else
+            return false;
     }
 }

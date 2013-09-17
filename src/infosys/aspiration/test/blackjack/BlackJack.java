@@ -10,21 +10,48 @@ package infosys.aspiration.test.blackjack;
  */
 public class BlackJack {
     
-    public static final int STAND                 = 0;
-    public static final int HIT                   = 0;
-    public static final int CARD_NAME_NOT_KNOWN   = 0;
+    public static final int STAND                   = 0;
+    public static final int HIT                     = 1;
+    public static final int CARD_NAME_NOT_KNOWN     = -1;
+    public static final int BLACKJACK_HAND          = 2;
     
+    public boolean cardsContainsAce(char firstCard, char secondCard) {
+        return (firstCard == 'A' || secondCard == 'A');
+    }
     
-    public int hitOrStand(char firstCard, char secondCard) {
+    public boolean isCardValid(char firstCard, char secondCard) {
         
-        int score;
-        
+        boolean isValid = false;
         // player can't identify the card !!! oops
-        if(firstCard != 'A' || secondCard != 'A') {
-            if(BlackJackCard.isCardValid(firstCard) 
+        if(!cardsContainsAce(firstCard, secondCard)) {
+            if(BlackJackCard.isCardPresent(firstCard) 
                            &&  
-               BlackJackCard.isCardValid(secondCard))
-                return BlackJack.CARD_NAME_NOT_KNOWN;
+               BlackJackCard.isCardPresent(secondCard))
+               isValid = false;
         }
+        
+        // card dealt is fine
+        else {
+            isValid = true;
+        }
+        
+        return isValid;
+    }
+    
+    private int hitOrStandHelper(char firstCard, char secondCard) {
+        
+        // either card not identifed 
+        if(!this.isCardValid(firstCard, secondCard))
+            return BlackJack.CARD_NAME_NOT_KNOWN;
+        
+        // blackjack hand means score is 21
+        if(firstCard == 'A' && secondCard == BlackJackCard.isFaceCard(secondCard)
+                                    ||
+           secondCard == 'A' && firstCard == BlackJackCard.isFaceCard(firstCard))
+            return BlackJack.BLACKJACK_HAND;
+        
+        //
+    }
+        
     
 }
