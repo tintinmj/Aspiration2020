@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package infosys.aspiration.Library;
+package infosys.aspiration.libraryutil;
 
 import java.util.Scanner;
 

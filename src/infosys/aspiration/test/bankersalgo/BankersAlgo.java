@@ -4,7 +4,7 @@
  */
 package infosys.aspiration.test.bankersalgo;
 
-import infosys.aspiration.Library.ArrayUtil;
+import infosys.aspiration.libraryutil.ArrayUtil;
 import java.util.Scanner;
 
 /**
