@@ -61,4 +61,12 @@ public final class ArrayUtil {
         }
         return contains(tempArray, key.toString());
     }
+    
+    public static boolean contains(double []array, double key) {
+        String []tempArray = new String[array.length];
+        for(int i = 0; i < array.length; i++) {
+            tempArray[i] = String.valueOf(array[i]);
+        }
+        return contains(tempArray, String.valueOf(key));
+    }
 }
