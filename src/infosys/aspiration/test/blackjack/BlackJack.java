@@ -10,47 +10,55 @@ package infosys.aspiration.test.blackjack;
  */
 public class BlackJack {
     
-    public static final int STAND                   = 0;
-    public static final int HIT                     = 1;
-    public static final int CARD_NAME_NOT_KNOWN     = -1;
-    public static final int BLACKJACK_HAND          = 2;
+    private static final int STAND                   = 0;
+    private static final int HIT                     = 1;
+    private static final int CARD_NAME_NOT_KNOWN     = -1;
+    private static final int BLACKJACK_HAND          = 2;
     
-    public boolean cardsContainsAce(char firstCard, char secondCard) {
+    public boolean oneOfTheCardIsAce(char firstCard, char secondCard) {
         return (firstCard == 'A' || secondCard == 'A');
     }
     
-    public boolean isCardValid(char firstCard, char secondCard) {
-        
-        boolean isValid = false;
-        // player can't identify the card !!! oops
-        if(!cardsContainsAce(firstCard, secondCard)) {
-            if(BlackJackCard.isCardPresent(firstCard) 
-                           &&  
-               BlackJackCard.isCardPresent(secondCard))
-               isValid = false;
-        }
-        
-        // card dealt is fine
-        else {
-            isValid = true;
-        }
-        
-        return isValid;
+    public boolean isDealtCardsValid(char firstCard, char secondCard) {
+        return BlackJackCard.isValid(firstCard) && 
+                BlackJackCard.isValid(secondCard);
     }
     
     private int hitOrStandHelper(char firstCard, char secondCard) {
         
         // either card not identifed 
-        if(!this.isCardValid(firstCard, secondCard))
+        if(!this.isDealtCardsValid(firstCard, secondCard))
             return BlackJack.CARD_NAME_NOT_KNOWN;
         
         // blackjack hand means score is 21
-        if(firstCard == 'A' && secondCard == BlackJackCard.isFaceCard(secondCard)
-                                    ||
-           secondCard == 'A' && firstCard == BlackJackCard.isFaceCard(firstCard))
+        if(firstCard == 'A' && BlackJackCard.isFaceCard(secondCard) || 
+                secondCard == 'A' && BlackJackCard.isFaceCard(firstCard))
             return BlackJack.BLACKJACK_HAND;
         
-        //
+        
+        int score = BlackJackCard.blackJackCardToValue.get(firstCard) +
+                BlackJackCard.blackJackCardToValue.get(secondCard);
+        
+        // player needs to hit
+        if(oneOfTheCardIsAce(firstCard, secondCard) ||
+                score <= 11)
+            return BlackJack.HIT;
+        
+        // player needs to stand
+        else 
+            return BlackJack.STAND;
+    }
+    
+    public String hitOrStand(char firstCard, char secondCard) {
+        String result;
+        switch(hitOrStandHelper(firstCard, secondCard)) {
+            case STAND               : result = "STAND";         break;
+            case BLACKJACK_HAND      : result = "Black Jack";    break;
+            case HIT                 : result = "HIT";           break;
+            case CARD_NAME_NOT_KNOWN : result = "Invalid Card";  break;
+            default                  : result = "WTF!!!";        break;
+        } 
+        return result;
     }
         
     

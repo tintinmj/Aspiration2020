@@ -16,13 +16,13 @@ public class BlackJackCard {
     
     public static final Map<Character, Integer> blackJackCardToValue;
     @SuppressWarnings("MismatchedReadAndWriteOfArray")
-    public static final char []cardNameInChar = new char[]{
-                                                '1', '2', '3', '4', '5', '6', 
-                                                '7', '8', '9', 'J', 'Q', 'K'};
+    private static final char []cardNameInChar = new char[]{
+                                                '2', '3', '4', '5', '6', 
+                                                '7', '8', '9', 'J', 'Q', 'K', 'A'};
     @SuppressWarnings("MismatchedReadAndWriteOfArray")
     private static final int []cardVaule = new int[]{
-                                                 1, 2, 3, 4, 5, 6,
-                                                 7, 8, 9, 10, 10, 10};
+                                                 2, 3, 4, 5, 6,
+                                                 7, 8, 9, 10, 10, 10, 1};
     static {
         
         // assign the card value as card name
@@ -32,7 +32,7 @@ public class BlackJackCard {
         }
     }
     
-    public static boolean isCardPresent(char key) {
+    public static boolean isValid(char key) {
         return ArrayUtils.contains(cardNameInChar, key);
     }
     
@@ -43,4 +43,5 @@ public class BlackJackCard {
         else
             return false;
     }
+
 }
