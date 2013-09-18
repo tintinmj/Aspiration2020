@@ -16,13 +16,13 @@ public class BlackJackCard {
     
     public static final Map<Character, Integer> blackJackCardToValue;
     @SuppressWarnings("MismatchedReadAndWriteOfArray")
-    private static final char []cardNameInChar = new char[]{
+    public static final char []cardNameInChar = new char[]{
                                                 '2', '3', '4', '5', '6', 
                                                 '7', '8', '9', 'J', 'Q', 'K', 'A'};
     @SuppressWarnings("MismatchedReadAndWriteOfArray")
-    private static final int []cardVaule = new int[]{
+    public static final int []cardVaule = new int[]{
                                                  2, 3, 4, 5, 6,
-                                                 7, 8, 9, 10, 10, 10, 1};
+                                                 7, 8, 9, 10, 10, 10, 11};
     static {
         
         // assign the card value as card name
@@ -42,6 +42,23 @@ public class BlackJackCard {
            card == 'K'  ) return true;
         else
             return false;
+    }
+    
+    public static boolean oneOfTheCardIsAce(char firstCard, char secondCard) {
+        return (firstCard == 'A' || secondCard == 'A');
+    }
+    
+    public static boolean isDealtCardsValid(char firstCard, char secondCard) {
+        return BlackJackCard.isValid(firstCard) && 
+                BlackJackCard.isValid(secondCard);
+    }
+    
+    public static boolean isBothCardsAreAce(char firstCard, char secondCard) {
+        return (firstCard == 'A' && secondCard == 'A');
+    }
+    
+    public int noOfCards() {
+        return cardNameInChar.length;
     }
 
 }

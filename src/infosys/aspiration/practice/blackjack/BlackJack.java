@@ -15,19 +15,10 @@ public class BlackJack {
     private static final int CARD_NAME_NOT_KNOWN     = -1;
     private static final int BLACKJACK_HAND          = 2;
     
-    public boolean oneOfTheCardIsAce(char firstCard, char secondCard) {
-        return (firstCard == 'A' || secondCard == 'A');
-    }
-    
-    public boolean isDealtCardsValid(char firstCard, char secondCard) {
-        return BlackJackCard.isValid(firstCard) && 
-                BlackJackCard.isValid(secondCard);
-    }
-    
     private int hitOrStandHelper(char firstCard, char secondCard) {
         
         // either card not identifed 
-        if(!this.isDealtCardsValid(firstCard, secondCard))
+        if(!BlackJackCard.isDealtCardsValid(firstCard, secondCard))
             return BlackJack.CARD_NAME_NOT_KNOWN;
         
         // blackjack hand means score is 21
@@ -40,12 +31,19 @@ public class BlackJack {
                 BlackJackCard.blackJackCardToValue.get(secondCard);
         
         // player needs to hit
-        if(oneOfTheCardIsAce(firstCard, secondCard) ||
+        if(BlackJackCard.oneOfTheCardIsAce(firstCard, secondCard) ||
                 score <= 11)
             return BlackJack.HIT;
+  
+//           unwanted for now but will be used        
+//        // both card is Ace so hit it
+//        else if(BlackJackCard.isBothCardsAreAce(firstCard, secondCard)) {  
+//            score -= 10;
+//            return BlackJack.HIT;
+//        }
         
         // player needs to stand
-        else 
+        else
             return BlackJack.STAND;
     }
     
