@@ -4,9 +4,9 @@
  */
 package infosys.aspiration.practice.blackjack;
 
+import infosys.aspiration.libraryutil.ArrayUtil;
 import java.util.HashMap;
 import java.util.Map;
-import org.apache.commons.lang3.ArrayUtils;
 
 /**
  *
@@ -32,8 +32,8 @@ public class BlackJackCard {
         }
     }
     
-    public static boolean isValid(char key) {
-        return ArrayUtils.contains(cardNameInChar, key);
+    private static boolean isValid(char key) {
+        return ArrayUtil.contains(cardNameInChar, key);
     }
     
     public static boolean isFaceCard(char card) {

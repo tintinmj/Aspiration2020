@@ -37,8 +37,8 @@ public class BlackJackTester {
 //        System.out.println(" K & 2 : " + player.hitOrStand('K', '2'));
 //        System.out.println(" 2 & K : " + player.hitOrStand('2', 'K'));
 //        System.out.println(" K & Q : " + player.hitOrStand('K', 'Q'));
-//        System.out.println(" K & 1 : " + player.hitOrStand('K', '1'));
-//        System.out.println(" Z & W : " + player.hitOrStand('Z', 'W'));
+        System.out.println(" K & 1 : " + player.hitOrStand('K', '1'));
+        System.out.println(" Z & W : " + player.hitOrStand('Z', 'W'));
 //        System.out.println(" Q & K : " + player.hitOrStand('Q', 'K'));
 //        System.out.println(" J & 5 : " + player.hitOrStand('J', '5'));
         
