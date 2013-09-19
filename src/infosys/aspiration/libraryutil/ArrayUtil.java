@@ -32,10 +32,11 @@ public final class ArrayUtil {
     
     public static boolean contains(String []array, String key) {
         for(String element : array) {
-            if(!element.equals(key))
-                return false;
+            if(element.equals(key))
+                return true;
         }
-        return true;
+        
+        return false;
     }
     
     public static boolean contains(int []array, int key) {
