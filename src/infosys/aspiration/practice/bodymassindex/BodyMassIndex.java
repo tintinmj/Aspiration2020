@@ -15,6 +15,7 @@ public class BodyMassIndex {
     public BodyMassIndex() {
         setBMI(0.0f);
     }
+    
     private String getCategoryHelper(float height, float weight) {
         if (height > 0 && weight > 0)
             return "";
