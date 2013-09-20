@@ -31,7 +31,7 @@ public class DNAStructure {
                 position[(Integer.
                             parseInt(String.
                                         valueOf(rightDNAList[i].
-                                            charAt(1))) * 2) - 2] = i;
+                                            substring(1))) * 2) - 2] = i;
             }
             
             // 'C' will be always map with 'G'
@@ -40,7 +40,7 @@ public class DNAStructure {
                 position[(Integer.
                             parseInt(String.
                                         valueOf(rightDNAList[i].
-                                            charAt(1))) * 2) - 1] = i;
+                                            substring(1))) * 2) - 1] = i;
             }
         }
         
@@ -76,14 +76,14 @@ public class DNAStructure {
     private int getPosition(String leftDNA, String[] rightDNAList) {
         if (leftDNA.charAt(0) == 'A') {
             for (int i = 0; i < rightDNAList.length; i++) {
-                if (leftDNA.charAt(1) == rightDNAList[i].charAt(1) && 
+                if (leftDNA.substring(1).equals(rightDNAList[i].substring(1)) && 
                         rightDNAList[i].charAt(0) == 'T')
                     return i;
             }
         } 
         else {
             for (int i = 0; i < rightDNAList.length; i++) {
-                if (leftDNA.charAt(1) == rightDNAList[i].charAt(1) && 
+                if (leftDNA.substring(1).equals(rightDNAList[i].substring(1)) && 
                         rightDNAList[i].charAt(0) == 'C')
                         return i;
             }
