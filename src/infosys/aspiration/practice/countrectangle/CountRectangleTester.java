@@ -7,7 +7,7 @@ package infosys.aspiration.practice.countrectangle;
 public class CountRectangleTester {
 
     public static void main(String[] args) {
-        int [][]co =       {{1,1},
+        int [][]co1 =      {{1,1},
                             {3,1},
                             {5,1},
                             {5,3},
@@ -18,38 +18,32 @@ public class CountRectangleTester {
                             {3,5},
                             {1,3}};
         
-        System.out.println(" " + getRectangle(co));
-                            
-        }
-    
-    
-    public static int getRectangle(int [][]co) {
-        int rectangleCount = 0;
-        //System.out.println(co.length);
-        int i,j,k;
+        printTestResult(1, new CountRectangle().getRectangle(co1), 8);
         
-        for(i = 0; i < co.length-1; i++) {
-        int uple=0,dowrit=0;    
-            for(j = i+1; j < co.length; j++) {
-                if(co[i][0] == co[j][0]) {
-                    uple = j;
-                    break;
-                }
-            }
+        int [][]co2 =  {{2001, 3000}, {2001, 3001},
+                        {2001, 3002}, {2001, 3003},
+                        {2001, 3004}, {3001, 3000},
+                        {3001, 3003}, {3001, 3004}};
             
-            for(k = i+1; k < co.length; k++) {
-                if(co[i][1] == co[k][1]) {
-                    dowrit = k;
-                    break;
-                }
-            }
-            
-            //if(uple == dowrit) return -1; //error
-                
-            if(co[uple][1] == co[dowrit][0])
-                rectangleCount++;
-              
+        printTestResult(2, new CountRectangle().getRectangle(co2), 3);
+        
+        int [][]co3 =  {{1,1},
+                        {7,1},
+                        {1,4},
+                        {1,5},
+                        {7,4},
+                        {7,5}};
+         
+        printTestResult(3, new CountRectangle().getRectangle(co3), 3);
         }
-        return rectangleCount;
+    
+    private static void printTestResult(int testNo, int result, int resultExpected) {
+        System.out.println(new StringBuilder(" Testcase # ").
+                               append(testNo).
+                               append(" ,result : ").
+                               append(result).
+                               append(" ,result Expected : ").
+                               append(resultExpected).toString());
     }
+
 }
