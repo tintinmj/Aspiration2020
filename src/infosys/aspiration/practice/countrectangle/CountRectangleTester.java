@@ -35,7 +35,8 @@ public class CountRectangleTester {
                         {7,5}};
          
         printTestResult(3, new CountRectangle().getRectangle(co3), 3);
-        }
+    
+    }
     
     private static void printTestResult(int testNo, int result, int resultExpected) {
         System.out.println(new StringBuilder(" Testcase # ").
