@@ -18,14 +18,14 @@ public class CountRectangleTester {
                             {3,5},
                             {1,3}};
         
-        printTestResult(1, new CountRectangle().getRectangle(co1), 8);
+        printTestResult(1, new CountRectangle().getRectangleCount(co1), 8);
         
         int [][]co2 =  {{2001, 3000}, {2001, 3001},
                         {2001, 3002}, {2001, 3003},
                         {2001, 3004}, {3001, 3000},
                         {3001, 3003}, {3001, 3004}};
             
-        printTestResult(2, new CountRectangle().getRectangle(co2), 3);
+        printTestResult(2, new CountRectangle().getRectangleCount(co2), 3);
         
         int [][]co3 =  {{1,1},
                         {7,1},
@@ -34,7 +34,7 @@ public class CountRectangleTester {
                         {7,4},
                         {7,5}};
          
-        printTestResult(3, new CountRectangle().getRectangle(co3), 3);
+        printTestResult(3, new CountRectangle().getRectangleCount(co3), 3);
     
     }
     
