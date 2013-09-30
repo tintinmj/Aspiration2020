@@ -2,7 +2,6 @@ package infosys.aspiration.practice.countrectangle;
 
 import infosys.aspiration.libraryutil.Point;
 import java.util.Arrays;
-import java.util.Comparator;
 
 /**
  *
@@ -23,9 +22,12 @@ public class CountRectangle {
         
         final Point []points = new Point[coOrdinates.length];
         
-        for(int i = 0; i < coOrdinates.length; i++)
+        for(int i = 0; i < coOrdinates.length; i++) {
+            if(coOrdinates[i].length > 2)
+                return -1;
             points[i] = new Point(coOrdinates[i][0], coOrdinates[i][1]);
-
+        }
+        
         Arrays.sort(points);
         
         int rectangleCount = 0;
@@ -33,19 +35,18 @@ public class CountRectangle {
             Point leftDown = points[i];
             
             for(int j = i+1; j < points.length; j++) {
-                Point rightDown = points[j];
+                Point leftUp = points[j];
                 
-                if(leftDown.getX() == rightDown.getX()) {
-                
+                if(leftDown.getX() == leftUp.getX()) {
+                    
                     for(int k = j+1; k < points.length; k++) {
-                        Point leftUp = points[k];
+                        Point rightDown = points[k];
                         
-                        if((leftDown.getY() == leftUp.getY())
-                                    &&
-                            (new Point(leftUp.getX(), rightDown.getY())
-                             .existsIn(points))) {
+                        if(leftDown.getY() == rightDown.getY()){
+                            Point probableRightUp = new Point(rightDown.getX(), leftUp.getY());
                             
-                            rectangleCount++;
+                            if(probableRightUp.existsIn(points))
+                                rectangleCount++;
                             
                         }
                         

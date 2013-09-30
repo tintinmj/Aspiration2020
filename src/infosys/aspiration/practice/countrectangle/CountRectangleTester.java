@@ -7,7 +7,8 @@ package infosys.aspiration.practice.countrectangle;
 public class CountRectangleTester {
 
     public static void main(String[] args) {
-        int [][]co1 =      {{1,1},
+        	
+        int [][]co1 =      {{1,3},
                             {3,1},
                             {5,1},
                             {5,3},
@@ -16,7 +17,7 @@ public class CountRectangleTester {
                             {3,3},
                             {3,4},
                             {3,5},
-                            {1,3}};
+                            {1,1}};
         
         printTestResult(1, new CountRectangle().getRectangleCount(co1), 8);
         
@@ -35,7 +36,7 @@ public class CountRectangleTester {
                         {7,5}};
          
         printTestResult(3, new CountRectangle().getRectangleCount(co3), 3);
-    
+        
     }
     
     private static void printTestResult(int testNo, int result, int resultExpected) {

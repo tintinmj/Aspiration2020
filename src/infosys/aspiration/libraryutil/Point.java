@@ -31,19 +31,6 @@ public final class Point implements Comparable<Point>{
         return "Point{" + "X=" + X + ", Y=" + Y + '}';
     }
 
-//   @Override
-//    public int compare(Point p1, Point p2) {
-////        Point p1 = (Point)o1;
-////        Point p2 = (Point)o2;
-////
-//        if(Integer.compare(p1.getX(),p2.getX()) == 0)
-//        {
-//            return Integer.compare(p1.getY(), p2.getY());
-//        }
-//
-//        return Integer.compare(p1.getX(),p2.getX());
-//    }
-
     @Override
     public int compareTo(Point p) {
         if(Integer.compare(this.getX(),p.getX()) == 0)
