@@ -29,8 +29,7 @@ public class BankersAlgo {
                 int need = maximumResource[i][j] - allocatedResource[i][j];
                 if (need > availableResource[j])
                     return false;
-                availableResource[j] -= need;
-                availableResource[j] += maximumResource[i][j];
+                availableResource[j] += allocatedResource[i][j];
              }
         }
         return true;
