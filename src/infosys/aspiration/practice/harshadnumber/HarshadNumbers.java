@@ -255,7 +255,6 @@ public class HarshadNumbers {
     }
     
     public int[] getHarshadNumberInRange(int startno, int endno) {
-        
         if(isValid(startno, endno)) {
             List<Integer> harshadInRangeList = new ArrayList<>();
             for(int harshad : harshadNumbers) {
@@ -268,7 +267,7 @@ public class HarshadNumbers {
             Integer[] harshadsInRange = harshadInRangeList.toArray(new Integer[0]);
             return ArrayUtils.toPrimitive(harshadsInRange);
         }
-        
         return new int[]{0};
     }
+    
 }
